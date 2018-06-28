@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
+#
+# This script simply plot the data from a CSV containing three columns: block, recall and precision.
+#
+# Quentin Ribac
 
+# configuration
+FILE = 'recprec.csv'
+
+# imports
 import csv
 import matplotlib.pyplot as plt
 
-def plot(fName = 'recprec.csv'):
+# code
+def plot(fName = FILE):
     values = []
     with open(fName, 'r', encoding = 'utf-8') as f:
         dreader = csv.DictReader(f, delimiter = '\t')

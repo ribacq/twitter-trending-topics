@@ -32,6 +32,8 @@ def compare(topicsFileName, headlinesFileName):
     """
     This function compares a set of detected trending topics to a list of headlines in the JSON format provided by NewsAPI.
 
+    A detected trending topic is considered as matching a headline if the intersection of the headline and the topic is at least 40%.
+
     It returns the list of trending topics that are included in the provided headlines, as well as:
     recall: number of matching topics divided by number of headlines
     precision: average fraction of headline terms found per matching topic

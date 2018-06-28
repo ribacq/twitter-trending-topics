@@ -6,13 +6,17 @@
 # Quentin Ribac
 # May 2018
 
+# configuration
+FILE = '../../tweets/newsEN-20180508/topics/sentimentStats.json'
+
+# imports
 import datetime
 import matplotlib.pyplot as plt
 import json
 
 # opening data file
 blockStats = []
-with open('../../tweets/newsEN-20180508/topics/sentimentStats.json', 'r', encoding = 'utf-8') as f:
+with open(FILE, 'r', encoding = 'utf-8') as f:
     for line in f:
         blockStats.append(json.loads(line))
 

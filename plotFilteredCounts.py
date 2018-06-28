@@ -3,14 +3,23 @@
 #
 # Quentin Ribac, May 2018
 
+# configuration
+# Those twe files are lists (one number per line) of the numbers of filtered topics and news headlines, block per block of the collection.
+# They must be of same length.
+# The FILTERED_COUNTS_FILE would have been generated after having filtered the topics against the headlines, using news.py.
+FILTERED_COUNTS_FILE = '../../tweets/newsEN-20180508/json/filteredCounts.csv'
+HEADLINES_COUNTS_FILE = '../../tweets/newsEN-20180508/headlines/headlinesCounts.csv'
+
+# imports
 import matplotlib.pyplot as plt
 
+# code
 filteredCounts = []
-with open('../../tweets/newsEN-20180508/json/filteredCounts.csv', 'r', encoding = 'utf-8') as f:
+with open(FILTERED_COUNTS_FILE, 'r', encoding = 'utf-8') as f:
     filteredCounts = [int(val) for val in f]
 
 headlinesCount = []
-with open('../../tweets/newsEN-20180508/headlines/headlinesCounts.csv', 'r', encoding = 'utf-8') as f:
+with open(HEADLINES_COUNTS_FILE, 'r', encoding = 'utf-8') as f:
     headlinesCounts = [int(val) for val in f]
 
 plt.plot([i for i in range(41)], headlinesCounts, 'r', label = 'News API')

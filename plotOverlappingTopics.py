@@ -6,6 +6,11 @@
 # Quentin Ribac
 # May 2018
 
+# configuration
+COLLECTION_DIR = '../../tweets/newsEN-20180508' # a collection directory
+Y_FIELD = 'sentiment' # a field defined in topicUtils.py
+
+# imports
 import csv
 import json
 import os
@@ -15,6 +20,7 @@ import stopwords
 
 import matplotlib.pyplot as plt
 
+# comparison function
 def useFiles(fName1, fName2):
     """
     Parameters:
@@ -49,8 +55,9 @@ def useFiles(fName1, fName2):
 
     return len(topics1), overlap
 
+# using the above function
 if __name__ == '__main__':
-    inputDir = '../../tweets/newsEN-20180508'
+    inputDir = COLLECTION_DIR
     inputJsonFiles = [inputDir + '/json/filtered/' + d for d in sorted(os.listdir(inputDir + '/json/filtered'))]
     inputTopicsDirs = [inputDir + '/topics/parts30minWithFiltered/' + d for d in sorted(os.listdir(inputDir + '/topics/parts30minWithFiltered'))]
     originalTopicsCount = 0
@@ -76,7 +83,6 @@ if __name__ == '__main__':
                 })
 
     # get the topics’ values
-    yField = 'sentiment'
     topicIDs = []
     data = []
     for i in range(len(inputTopicsDirs)):
@@ -84,7 +90,7 @@ if __name__ == '__main__':
             dreader = csv.DictReader(f, delimiter = '\t')
             csvValues = [topic for topic in dreader]
             topicIDs.append([float(topic['topicID']) for topic in csvValues])
-            data.append([float(topic[yField]) for topic in csvValues])
+            data.append([float(topic[Y_FIELD]) for topic in csvValues])
 
     # filter topics to only keep the longest ones
     #topics = sorted(topics, key = lambda t: sum([data[blockID][topicIDs[blockID].index(float(t[blockID]))] for blockID in t]), reverse = True)[:5]
@@ -110,9 +116,8 @@ if __name__ == '__main__':
         plt.plot(xData, yData, '-o', label = ', '.join(terms[:3]))
     plt.grid(True)
     plt.xlabel('British Summer Time (hours)', fontsize = 'large')
-    plt.ylabel(yField.capitalize(), fontsize = 'large')
+    plt.ylabel(Y_FIELD.capitalize(), fontsize = 'large')
     plt.xticks([i for i in range(41) if i%2], [str(int((11.5 + 0.5 * i) % 24))+':00' for i in range(41) if i%2], rotation = -45, fontsize = 'large')
     plt.yticks(fontsize = 'large')
-    plt.legend(['stupid, plan, trump', 'history, show, iran', 'force, delta, sterling', 'break, trump, leave', 'kick, restart, nul'], fontsize = 'x-large')
-    #plt.legend(fontsize = 'x-large')
+    plt.legend(fontsize = 'x-large')
     plt.show()
