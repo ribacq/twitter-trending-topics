@@ -6,6 +6,37 @@
 # Written by Quentin Ribac
 # April 2018
 
+# This file defines several helper functions, including:
+# * how to print the human-readable summary files summary.txt (summary)
+# * topic sorting functions (sortByTFIDF, sortByViews and sortByTweetCount)
+# * how to extract a stats.csv from a topics.json (json2csv)
+#
+# json2csv defines the following fields, for a given topic:
+#
+# topicID: an identifier for the topic in this block
+# secs: the time identifier of the block in seconds
+# tweetCount: number of tweets in the topic, retweets counted as many times as found
+# singleTweetCount: number of tweets in the topic, retweets counted once only
+# views: sum of audience of all tweets in the topic
+# avgViews: views / tweetCount
+# maxViews: views of the tweet with the largest audience
+# tfidf: sum of tfidf of all tweets in the topic
+# avgTfidf: tfidf / tweetCount
+# URLsCount: total number of URLs in this topic’s tweets
+# avgURLsCount: URLsCount / tweetCount
+# avgMediaCount: average number of media (images and videos) per tweet
+# retweets: total number of times every tweet was retweeted
+# avgRetweets: retweets / tweetCount
+# favorites: total number of times every tweet was favorited (aka ‘liked’)
+# avgFavorites: favorites / tweetCount
+# sentiment: sum of all tweets’ sentiment
+# avgSentiment: sentimient / tweetCount
+# absSentiment: sum of the absolute values of the sentiment of every tweet
+# minSentiment and maxSentiment: minimum and maximum sentiment found in the topic
+# nsr: Net Sentiment Rate of the topic (number of positive - number of negative) / tweetCount
+# positiveCount, negativeCount and neutralCount: number of tweets with positive, negative or neutral sentiment
+
+# imports
 import json
 import sys
 

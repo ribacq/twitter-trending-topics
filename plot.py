@@ -2,15 +2,25 @@
 # -*- encoding: utf-8 -*-
 #
 # Convert a csv into a series of scatter plot images
+# There will be one series of dots per topic
 #
 # Quentin Ribac
 # May 2018
 
+# Configuration
+FILE = '../../tweets/newsEN-20180508/topics/parts30minUpdated/part06-2018-05-08T14h30/statsfiltered.csv' # must be a stats*.csv
+
+# fields defined in topicUtils.py
+X_FIELD = 'sentiment'
+Y_FIELD = 'tweetCount'
+
+# Imports
 import csv
 import random
 import sys
 import matplotlib.pyplot as plt
 
+# Code
 def csv2plot(fName, topicIDs, xField, yField, xLabel = 'x', yLabel = 'y', title = '', removeConstant = False, noPlot = False):
     """
     csv2plot draws a scatter plot from given csv data.
@@ -100,5 +110,4 @@ def csv2plot(fName, topicIDs, xField, yField, xLabel = 'x', yLabel = 'y', title 
     return xData, yData
 
 if __name__ == '__main__':
-    x, y = 'avgFavorites', 'tweetCount'
-    res = csv2plot('../plopres/statstime.csv', [], x, y, removeConstant = False)
+    res = csv2plot(FILE, [], X_FIELD, Y_FIELD, removeConstant = False)
