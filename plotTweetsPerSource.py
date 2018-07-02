@@ -2,14 +2,19 @@
 # -*- encoding: utf-8 -*-
 #
 # Quentin Ribac
-# The goal of this script is to compute the number of tweets per news source.
+# The goal of this script is to compute the number of tweets per news source in a json file of tweets.
 
+# configuration
+FILE = '../../tweets/newsEN-20180508/json/total.json'
+
+# dependencies
 import json
 import sys
 import matplotlib.pyplot as plt
 
+# code
 tweetsPerSource = {}
-with open('../../tweets/newsEN-20180508/json/total.json', 'r', encoding = 'utf-8') as f:
+with open(FILE, 'r', encoding = 'utf-8') as f:
     for lIter, line in enumerate(f):
         # for every tweet
         print('\r', lIter, end = '', file = sys.stderr)

@@ -33,7 +33,7 @@ def usage():
     print('    Default: get a sample of the whole of Twitter without filters')
     print('')
     print('--limit, -l <number>')
-    print('    Indicate the number of tweets you want to retrieve with ‘filter’. Default: 3000')
+    print('    Indicate the number of tweets you want to retrieve with ‘filter’. Default: 10,000')
     print('')
     print('--analyze, -a <tweets file> <output directory>')
     print('    Given a tweets file, this will generate, in the output directory:')

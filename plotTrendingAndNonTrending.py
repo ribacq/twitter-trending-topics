@@ -5,18 +5,18 @@
 #
 # Comparision of sentiment of tweets in trending topics and tweets not in trending topics, over time.
 
+# configuration
+inputDir = '../../tweets/newsEN-20180508/topics/parts30minUpdated'
+field = 'retweets' # defined in topicUtils.py
+
 # dependencies
 import csv
 import os
 import matplotlib.pyplot as plt
 
 # where to look for data
-inputDir = '../../tweets/newsEN-20180508/topics/parts30minUpdated'
 blockDirs = sorted(os.listdir(inputDir))
 
-# field to plot, i.e. views, sentiment, avgURLsCount...
-# See topicUtils.py for complete list
-field = 'retweets'
 
 # for every block of 30 minutes
 times = []

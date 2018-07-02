@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 #
 # Script using the opinion lexicon to rate texts
+# Import this file and use the rate function, with a list of texts/tweets as argument.
 #
 # Quentin Ribac
 # May 2018
