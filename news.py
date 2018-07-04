@@ -7,6 +7,13 @@
 # Written by Quentin Ribac
 # April 2018
 
+# Usage
+# -----
+# Given a topics file and a headline list, this script will compare topics and headlines.
+# Topics that match headlines will be printed in the file given as third argument, and the recall and precision are printed to STDOUT.
+#
+# python3 news.py topics.json headlines.txt filteredTopics.json > recprec.tsv
+
 #from newsapi import NewsApiClient
 
 # dependencies

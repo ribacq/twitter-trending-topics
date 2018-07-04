@@ -6,6 +6,8 @@
 # Comparision of sentiment of tweets in trending topics and tweets not in trending topics, over time.
 
 # configuration
+# inputDir is a directory containing subdirectories whose names end with a time in the HHhMM format,
+# each of theses subdirectories being a block.
 inputDir = '../../tweets/newsEN-20180508/topics/parts30minUpdated'
 field = 'retweets' # defined in topicUtils.py
 
@@ -16,7 +18,6 @@ import matplotlib.pyplot as plt
 
 # where to look for data
 blockDirs = sorted(os.listdir(inputDir))
-
 
 # for every block of 30 minutes
 times = []

@@ -4,7 +4,7 @@
 # Quentin Ribac, May 2018
 
 # configuration
-# Those twe files are lists (one number per line) of the numbers of filtered topics and news headlines, block per block of the collection.
+# Those two files are lists (one number per line) of the numbers of filtered topics and news headlines, block per block of the collection.
 # They must be of same length.
 # The FILTERED_COUNTS_FILE would have been generated after having filtered the topics against the headlines, using news.py.
 FILTERED_COUNTS_FILE = '../../tweets/newsEN-20180508/json/filteredCounts.csv'

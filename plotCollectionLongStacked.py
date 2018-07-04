@@ -7,7 +7,7 @@
 # May 2018
 
 # configuration
-FILE = '../../tweets/newsEN-20180508/topics/sentimentStats.json'
+FILE = '../../tweets/newsEN-20180508/topics/sentimentStats.json' # the concatenation of all sentimentStats.json of a collection, one block per line
 
 # imports
 import datetime

@@ -7,18 +7,49 @@ The files do several kinds of things:
 * group tweets in topics (`topicDetection.py`)
 * analyze tweets to generate graphs (all `plot*.py`)
 
-## How-to
-### Retrieve tweets
-Use `main.py` to retrieve tweets to `stdout`.
+## How-to retrieve tweets
+`python3 main.py --help` gives:
 
-```bash
-python3 main.py news
+```
+Twitter trending topics detection and analysis
+==============================================
+
+Usage:
+	main.py [-l <number>] -r <choice>
+	main.py [-t <number>] [-s <number>] -a <tweets file> <output directory>
+
+--help, -h
+	Display this help message
+
+--retrieve, -r [filter <term1 term2 ...> | news [date]]
+	Get tweets from Twitter to STDOUT.
+	‘filter <terms>’ streams a live sample 10,000 tweets, filtered by given terms, if any
+	‘news’ streams a live sample of tweets from UK news sources’
+	‘idsfile <fname>’ will retrieve tweets whose IDs are specified in given file, one per line
+	Default: get a sample of the whole of Twitter without filters
+
+--limit, -l <number>
+	Indicate the number of tweets you want to retrieve with ‘filter’. Default: 10,000
+	0 or a negative value means no limit. In this case stop with ^C.
+
+--analyze, -a <tweets file> <output directory>
+	Given a tweets file, this will generate, in the output directory:
+	topics.json, containing all topics
+	summary.txt, containing a more human-readable summary of topics
+	stats.csv,   containing tweetCount, views and tfidf, etc. for each topic (TAB seperated values)
+	sentimentStats.json, containing numbers of positive, negative, neutral and total tweets
+
+--threshold, -t <number>
+	Set the cosine similarity threshold between tweet and topics.
+	Values can range from 0.1 to 0.9. Default: 0.3
+
+--size, -s <number>
+	Set the minimum number of tweets in a topic.
+	Default: 5
 ```
 
-(more info in `python3 main.py --help`)
-
-### Analyze tweets
-Use a `plot*.py` file, set the configuration on top with your values, and use `python3 plotSomething.py`. If there is no error, this will generate both a plot and numerical values (in `stdout`).
+### Analyze the topics
+Use a `plot*.py` file, set the configuration on top with your values, and use `python3 plotSomething.py`. If there is no error, this will generate both a plot and numerical values in `stdout`.
 
 ## Used external software
 **Python3**,

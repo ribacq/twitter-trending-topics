@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 #
+# Sources from NewsAPI that have Twitter accounts
+#
 # Quentin Ribac
 # May 2018
 
@@ -114,5 +116,3 @@ english_sources_twitter = {
     'WIRED': '1344951',
     'WiredUK': '22363802',
 }
-
-#print(' & '.join(['@' + s for s in list(english_sources_twitter.keys())]))
